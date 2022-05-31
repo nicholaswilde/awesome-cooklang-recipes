@@ -7,7 +7,7 @@ name: link-check
     branches:
       - main
 
- jobs:
+jobs:
   markdown-link-check:
     name: Markdown link check
     runs-on: ubuntu-20.04
