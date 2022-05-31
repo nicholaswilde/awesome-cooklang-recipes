@@ -1,5 +1,5 @@
 ---
-name: lint
+name: link-check
 'on':
   workflow_dispatch:
   pull_request:
