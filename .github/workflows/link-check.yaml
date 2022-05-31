@@ -1,6 +1,8 @@
 ---
 name: link-check
-'on':
+on:  # yamllint disable-line rule:truthy
+  # Schedule check each day at 8 UTC
+  schedule: [{cron: "0 8 * * *"}]
   workflow_dispatch:
   pull_request:
   push:
@@ -13,8 +15,10 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Check markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           file-path: './README.md'
           config-file: './mlc_config.json'
